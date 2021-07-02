@@ -27,7 +27,7 @@ const EventManageRoute = require('./routes/EventManageRoute')
 const ResearchPaper = require('./routes/ResearchPaperRoute')
 const Payment = require('./routes/Payment')
 const Editor = require('./routes/EditorRouted')
-const research = require('./routes/ResearchRoutes')
+const research = require('./routes/ResearchRoutes')  
 
 
 //Middleware
