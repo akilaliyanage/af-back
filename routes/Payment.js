@@ -32,7 +32,7 @@ router.post('/',(req,res) =>{
     })
 
     item.save().then(data =>{
-        res.json(data)
+        res.status(200).send({"message" : "ok"})
     }).catch(err =>{
         res.json(err)
     })
