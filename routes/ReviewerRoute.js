@@ -23,7 +23,7 @@ const upload = multer({storage:storage});
 
 router.get("/",(req,res) => {
 
-    Reserchers.find().then( (reviewers) =>{
+    Reviewer.find().then( (reviewers) =>{
 
         res.json(reviewers);
 
