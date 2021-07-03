@@ -21,6 +21,20 @@ const storage = multer.diskStorage({
 //uploading images
 const upload = multer({storage:storage});
 
+router.get("/",(req,res) => {
+
+    Reserchers.find().then( (reviewers) =>{
+
+        res.json(reviewers);
+
+    }).catch((err) => {
+        console.log(err);
+    })
+
+})
+
+
+
 router.post("/add",upload.single("picture"),async(req,res) => {
 
     const salt = await bcrypt.genSalt();
@@ -42,17 +56,6 @@ router.post("/add",upload.single("picture"),async(req,res) => {
 
 })
 
-router.route("/researchers").get((req,res) => {
-
-    Reserchers.find().then( (reviewers) =>{
-
-        res.json(reviewers);
-
-    }).catch((err) => {
-        console.log(err);
-    })
-
-})
 
 router.route("/:ID").get((req,res) => {
 
