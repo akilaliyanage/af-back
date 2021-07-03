@@ -39,7 +39,7 @@ app.use(cors())
 app.use('/',healthCheck)
 app.use('/nav-items', navBarRoutes);
 app.use('/news', newsItemsRoutes);
-app.use('s', reviewerRouter);
+app.use('/reviewer', reviewerRouter);
 app.use('/about',AboutRoutes)
 app.use('/event-date',EventDateRoutes)
 app.use('/edi-noti',EditorNotificatiins)
