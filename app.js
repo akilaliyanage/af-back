@@ -28,6 +28,7 @@ const ResearchPaper = require('./routes/ResearchPaperRoute')
 const Payment = require('./routes/Payment')
 const Editor = require('./routes/EditorRouted')
 const research = require('./routes/ResearchRoutes')  
+const WrokNoti = require('./routes/WorkshopNotificationRoutes') 
 
 
 //Middleware
@@ -36,7 +37,7 @@ app.use(cors())
 app.use('/',healthCheck)
 app.use('/nav-items', navBarRoutes);
 app.use('/news', newsItemsRoutes);
-app.use('/reviewer', reviewerRouter);
+app.use('s', reviewerRouter);
 app.use('/about',AboutRoutes)
 app.use('/event-date',EventDateRoutes)
 app.use('/edi-noti',EditorNotificatiins)
@@ -54,6 +55,7 @@ app.use('/researchPaper',ResearchPaper)
 app.use('/payment',Payment)
 app.use('/editor',Editor)
 app.use('/resrch', research)
+app.use('/notify', WrokNoti)
 
 app.use(express.static('uploads'))
 

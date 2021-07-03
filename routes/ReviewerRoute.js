@@ -1,9 +1,8 @@
 const router = require('express').Router();
-let Reviewer = require("../models/Reviewer");
+const Reviewer = require("../models/Reviewer");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
 
-const Reserchers = require('../models/Researcher')
 
 
 const jwt = require('jsonwebtoken')
@@ -42,9 +41,9 @@ router.post("/add",upload.single("picture"),async(req,res) => {
 
 })
 
-router.route("/researchers").get((req,res) => {
+router.route("/reviewer").get((req,res) => {
 
-    Reserchers.find().then( (reviewers) =>{
+    Reviewer.find().then((reviewers) =>{
 
         res.json(reviewers);
 
