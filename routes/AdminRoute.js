@@ -8,6 +8,10 @@ const News = require('../models/NewsItem')
 const Admin = require('../models/Admin')
 const {ObjectId} = require("bson");
 
+router.get('/',(req,res)=>{
+    res.send("ok")
+})
+
 
 router.post('approve/date',async (req,res) =>{
 
@@ -29,7 +33,7 @@ router.post('approve/date',async (req,res) =>{
     });
 })
 
-router.post('approve/about',async (req,res) =>{
+router.post('/approve/about',async (req,res) =>{
 
     const editID = req.body.editID;
     const item = new AboutModel({
@@ -50,7 +54,7 @@ router.post('approve/about',async (req,res) =>{
     });
 })
 
-router.post('approve/topic',async (req,res) =>{
+router.post('/approve/topic',async (req,res) =>{
 
     const editID = req.body.editID;
     const item = new EventTopic({
@@ -70,11 +74,12 @@ router.post('approve/topic',async (req,res) =>{
             res.json({status: 200})
         })
     }).catch(err =>{
+        console.log(err);
         res.json(err)
     });
 })
 
-router.post('approve/keynote',async (req,res) =>{
+router.post('/approve/keynote',async (req,res) =>{
 
     const editID = req.body.editID;
     const item = new KeyNote({
@@ -97,7 +102,7 @@ router.post('approve/keynote',async (req,res) =>{
     });
 })
 
-router.post('approve/news',async (req,res) =>{
+router.post('/approve/news',async (req,res) =>{
 
     const editID = req.body.editID;
     const item = new News({
