@@ -30,6 +30,8 @@ const Editor = require('./routes/EditorRouted')
 const research = require('./routes/ResearchRoutes')  
 const PresentationRoutes = require('./routes/PresentationRoutes')
 const ApproveNotification = require('./routes/approveNotificationRoutes')
+const WrokNoti = require('./routes/WorkshopNotificationRoutes') 
+
 
 //Middleware
 app.use(bodyParser.json())
@@ -37,7 +39,7 @@ app.use(cors())
 app.use('/',healthCheck)
 app.use('/nav-items', navBarRoutes);
 app.use('/news', newsItemsRoutes);
-app.use('/reviewer', reviewerRouter);
+app.use('s', reviewerRouter);
 app.use('/about',AboutRoutes)
 app.use('/event-date',EventDateRoutes)
 app.use('/edi-noti',EditorNotificatiins)
@@ -57,6 +59,7 @@ app.use('/editor',Editor)
 app.use('/resrch', research)
 app.use('/presentation', PresentationRoutes);
 app.use('/approveNotification', ApproveNotification);
+app.use('/notify', WrokNoti)
 
 app.use(express.static('uploads'))
 

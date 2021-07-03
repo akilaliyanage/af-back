@@ -3,7 +3,6 @@ const Reviewer = require("../models/Reviewer");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
 
-const Reserchers = require('../models/Researcher')
 
 
 const jwt = require('jsonwebtoken')
@@ -20,6 +19,20 @@ const storage = multer.diskStorage({
 
 //uploading images
 const upload = multer({storage:storage});
+
+router.get("/",(req,res) => {
+
+    Reviewer.find().then( (reviewers) =>{
+
+        res.json(reviewers);
+
+    }).catch((err) => {
+        console.log(err);
+    })
+
+})
+
+
 
 router.post("/add",upload.single("picture"),async(req,res) => {
 

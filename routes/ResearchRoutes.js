@@ -3,6 +3,7 @@ const router = express.Router()
 
 //importing models
 const ResearchModel = require('../models/ResearchPaperModel')
+const ResearcherModel = require('../models/Researcher')
 
 //get all researches
 router.route("/").get((req,res) => {
@@ -63,6 +64,17 @@ router.get('/decline/:id',async (req,res) =>{
     }catch(err){
         res.json(err)
     }
+})
+
+
+//get all reserchers
+router.route("/researchers").get((req,res) => {
+    ResearcherModel.find().then((reserchers) =>{
+        res.json(reserchers);
+    }).catch((err) => {
+        console.log(err);
+    })
+
 })
 
 module.exports = router;
