@@ -101,7 +101,7 @@ const ResearcherModel = mongoose.Schema({
             
     confPassword: {
         type : String,
-        required : true
+        required : false,
     },
     Approved: {
         type : String,
@@ -110,15 +110,15 @@ const ResearcherModel = mongoose.Schema({
 
     qualifications: {
         type : [QualificatonModel],
-        required : true
+        required : false
     },
     memberships: {
         type : [MembershipModel],
-        required : true
+        required : false
     },
     publications : {
         type : [PublicationModel],
-        required : true,
+        required : false,
     }
 })
 

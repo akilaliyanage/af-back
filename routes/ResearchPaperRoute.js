@@ -32,4 +32,41 @@ router.post('/',async (req,res) =>{
     })
 })
 
+router.get('/:id',async (req,res) =>{
+    if(req.params && req.params.id){
+        await ResearchPaperModel.findById(req.params.id)
+        .then((data) => {
+            res.status(200).send({data: data})
+        })
+        .catch((err) => {
+            res.status(500).send({error: err.message})
+        });
+    }
+})
+
+router.get('/byResearcher/:researcherId/:id',async (req,res) =>{
+    if(req.params && req.params.id){
+        await ResearchPaperModel.find({ $and: [ { _id: req.params.id }, { researcherId: req.params.researcherId } ] } )
+        .then((data) => {
+            res.status(200).send({data: data})
+        })
+        .catch((err) => {
+            res.status(500).send({error: err.message})
+        });
+    }
+})
+
+router.get('/byResearcher/:id',async (req,res) =>{
+    if(req.params && req.params.id){
+        console.log('research papers by researchers called')
+        await ResearchPaperModel.find({researcherId: req.params.id })
+        .then((data) => {
+            res.status(200).send({data: data})
+        })
+        .catch((err) => {
+            res.status(500).send({error: err.message})
+        });
+    }
+})
+
 module.exports = router;

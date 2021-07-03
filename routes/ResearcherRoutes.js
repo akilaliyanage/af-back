@@ -11,6 +11,7 @@ const ResearcherModel = require('../models/Researcher')
 
 router.post('/', async (req,res) =>{
 
+console.log('resercher post called')
     publicationList = req.body.publications,
     membershipsList = req.body.memberships,
     qualificationsList = req.body.qualifications
@@ -57,6 +58,19 @@ router.post('/', async (req,res) =>{
         console.log(err)
         res.json(err)
     })
+})
+
+router.get('/:id', async (req , res) =>{
+    if(req.params && req.params.id){
+        console.log('Research by id called in mount')
+        await ResearcherModel.findById(req.params.id)
+        .then((data) => {
+            res.status(200).send({data: data})
+        })
+        .catch((err) => {
+            res.status(500).send({error: err.message})
+        });
+    }
 })
 
 router.post('/login', async (req,res) =>{

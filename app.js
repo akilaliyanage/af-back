@@ -28,7 +28,8 @@ const ResearchPaper = require('./routes/ResearchPaperRoute')
 const Payment = require('./routes/Payment')
 const Editor = require('./routes/EditorRouted')
 const research = require('./routes/ResearchRoutes')  
-
+const PresentationRoutes = require('./routes/PresentationRoutes')
+const ApproveNotification = require('./routes/approveNotificationRoutes')
 
 //Middleware
 app.use(bodyParser.json())
@@ -54,6 +55,8 @@ app.use('/researchPaper',ResearchPaper)
 app.use('/payment',Payment)
 app.use('/editor',Editor)
 app.use('/resrch', research)
+app.use('/presentation', PresentationRoutes);
+app.use('/approveNotification', ApproveNotification);
 
 app.use(express.static('uploads'))
 
